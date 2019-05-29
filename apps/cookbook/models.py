@@ -64,11 +64,16 @@ class IngredientList(models.Model):
     id = models.AutoField(primary_key=True)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.PROTECT)
-    quantity = models.DecimalField(max_digits=6, decimal_places=2)
-    unit = models.ForeignKey(Unit, blank=True, on_delete=models.PROTECT)
+    quantity = models.DecimalField(
+        null=True, blank=True, max_digits=6, decimal_places=2)
+    unit = models.ForeignKey(
+        Unit, null=True, blank=True, on_delete=models.PROTECT)
 
     class Meta:
         unique_together = ('recipe', 'ingredient')
+
+    def __str__(self):
+        return self.recipe.name + " - " + self.ingredient.name
 
 
 class Colour(models.Model):
@@ -97,3 +102,6 @@ class RecipeLabel(models.Model):
 
     class Meta:
         unique_together = ('recipe', 'label')
+
+    def __str__(self):
+        return self.recipe.name + " - " + self.label.name
