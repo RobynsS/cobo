@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from apps.cookbook.modelclasses import Recipe
 
 
 def index(request):
@@ -13,5 +14,10 @@ def search(request):
     return render(request, 'search.html')
 
 
-def detail(request):
-    return render(request, 'detail.html')
+def detail(request, recipe_id):
+    recipe = Recipe(recipe_id)
+    context = {
+        'recipe': recipe
+    }
+
+    return render(request, 'detail.html', context)

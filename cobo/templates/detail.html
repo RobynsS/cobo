@@ -1,1 +1,9 @@
-<p>Detail</p>
+<p>Detail of recipe</p>
+
+<p>Name: {{recipe.name}}</p>
+
+<p>Cuisine: {{recipe.cuisine}}</p>
+
+{% for label in recipe.labels %}
+    <li><font color={{label.colour}}>{{label.name}}</font></li>
+{% endfor %}
