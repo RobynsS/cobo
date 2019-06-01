@@ -1,0 +1,52 @@
+.navbar-brand {
+  color: white;
+  font-family: 'Righteous', cursive;
+  font-size: 36px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #414959;
+  padding-bottom: 0px;
+  padding-top: 5px;
+}
+
+.navbar-img {
+  margin-bottom: 16px;
+}
+
+.navbar {
+  background-color: #00A093;
+}
+
+.navbar-padding {
+  padding-top: 10px;
+}
+
+#topLine {
+    background-color: #6CE9D2;
+    height: 10px;
+}
+
+#footer {
+    background-color: #FFFFE3;
+    color: #828282;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 0px;
+}
+
+#footer-text{
+  margin-top: 1rem;
+  font-family: 'Archivo', sans-serif;
+}
+
+#main {
+  min-height: 700px
+}
+
+body {
+  font-family: 'Archivo', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,64 @@
+from .models import Recipe as RecipeModel
+from .models import Label as LabelModel
+from .models import Step as StepModel
+from .models import IngredientList as ListModel
+
+
+class Recipe:
+    def __init__(self, recipe_id):
+        # Get recipe object from database
+        recipe_query = RecipeModel.objects.get(pk=recipe_id)
+
+        # Fill in single parameters of object into class
+        self.name = recipe_query.name
+        self.servings = recipe_query.servings
+        self.preparation_time = recipe_query.preparation_time
+        self.cost = recipe_query.cost
+        self.course = recipe_query.course_id.name
+        self.cuisine = recipe_query.cuisine_id.name
+
+        # Fill in multi parameters of object into class
+        labels = []
+        for entry in recipe_query.recipelabel_set.all():
+            labels.append(Label(entry.label.id))
+        self.labels = labels
+
+        steps = []
+        for entry in recipe_query.step_set.all().order_by('step_number'):
+            steps.append(Step(entry.id))
+        self.steps = steps
+
+        ingredientlist = []
+        for entry in recipe_query.ingredientlist_set.all():
+            ingredientlist.append(IngredientList(entry.id))
+        self.ingredientlist = ingredientlist
+
+
+class Label:
+    def __init__(self, label_id):
+        label_query = LabelModel.objects.get(pk=label_id)
+        self.name = label_query.name
+        self.colour = label_query.colour
+
+
+class Step:
+    def __init__(self, step_id):
+        step_query = StepModel.objects.get(pk=step_id)
+        self.number = step_query.step_number
+        self.instruction = step_query.instruction
+
+
+class IngredientList:
+    def __init__(self, list_id):
+        list_query = ListModel.objects.get(pk=list_id)
+        self.ingredient = list_query.ingredient
+
+        if list_query.quantity:
+            self.quantity = '%g' % (list_query.quantity)
+        else:
+            self.quantity = ""
+
+        if list_query.unit:
+            self.unit = list_query.unit
+        else:
+            self.unit = ""

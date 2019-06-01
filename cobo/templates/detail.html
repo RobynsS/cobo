@@ -1,9 +1,31 @@
-<p>Detail of recipe</p>
+{% extends 'basic.html' %} 
+{% block 'body' %}
 
-<p>Name: {{recipe.name}}</p>
+  <h1>{{recipe.name}}</h1>
 
-<p>Cuisine: {{recipe.cuisine}}</p>
+  <p>Serving: {{recipe.servings}}</p>
 
-{% for label in recipe.labels %}
-    <li><font color={{label.colour}}>{{label.name}}</font></li>
-{% endfor %}
+  <p>Cuisine: {{recipe.cuisine}}</p>
+  <p>Course: {{recipe.course}}</p>
+
+  <p>Preparation: {{recipe.preparation_time}}</p>
+  <p>Cost: {{recipe.cost}}</p>
+
+  <p>Labels</p>
+  {% for label in recipe.labels %}
+      <li><font color={{label.colour.hex}}>{{label.name}}</font></li>
+  {% endfor %}
+
+  <p>Instructions</p>
+  <ol>
+  {% for step in recipe.steps %}
+      <li>{{step.instruction}}</font></li>
+  {% endfor %}
+  </ol>
+
+  <p>Ingedients</p>
+  {% for entry in recipe.ingredientlist %}
+      <li>{{entry.ingredient}} {{entry.quantity}} {{entry.unit}}</font></li>
+  {% endfor %}
+
+{% endblock %}

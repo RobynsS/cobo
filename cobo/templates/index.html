@@ -1,5 +1,10 @@
+{% extends 'basic.html' %} 
+{% block 'body' %}
+
 <p>Index page</p>
 
 <a href="{% url 'add' %}">Add recipe</a>
 
 <a href="{% url 'search' %}">Search recipe</a>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from apps.cookbook.modelclasses import Recipe
+from apps.cookbook.modelinterface import Recipe
 
 
 def index(request):
