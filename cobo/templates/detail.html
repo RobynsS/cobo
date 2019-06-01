@@ -1,31 +1,47 @@
 {% extends 'basic.html' %} 
 {% block 'body' %}
 
+  {% load static %}
+
   <h1>{{recipe.name}}</h1>
 
-  <p>Serving: {{recipe.servings}}</p>
+  <div id="parameter-rectangle">
+    <div id="parameters">
+          <div id="parameters-text"> Serving: {{recipe.servings}} - Preparation: {{recipe.preparation_time}} - Cost: {{recipe.cost}}
+          <img id="flag" src={% static 'images/flags/be.svg' %}>
+          </div>
+          <div>
+            <span class="badge badge-secondary" id="course">{{recipe.course}}</span>
+            {% for label in recipe.labels %}
+              <span class="badge badge-secondary" style="background-color: {{label.colour.hex}}">{{label.name}}</span>
+            {% endfor %}
+          </div>
+    </div>
+  </div>
 
-  <p>Cuisine: {{recipe.cuisine}}</p>
-  <p>Course: {{recipe.course}}</p>
+  <div class="row" id="ingredients-image">
+    <div class="column" style="width: 60%; float:left">
+    </div>
 
-  <p>Preparation: {{recipe.preparation_time}}</p>
-  <p>Cost: {{recipe.cost}}</p>
+    <div class="column" style="width: 40%; float:right">
+        <h2>Ingedients</h2>
+        {% for entry in recipe.ingredientlist %}
+            <li>{{entry.ingredient}} {{entry.quantity}} {{entry.unit}}</font></li>
+        {% endfor %}
+    </div>
+  </div>
 
-  <p>Labels</p>
-  {% for label in recipe.labels %}
-      <li><font color={{label.colour.hex}}>{{label.name}}</font></li>
-  {% endfor %}
+  <div id="instructions">
 
-  <p>Instructions</p>
+
+  <h2>Instructions</h2>
   <ol>
   {% for step in recipe.steps %}
       <li>{{step.instruction}}</font></li>
   {% endfor %}
   </ol>
+  </div>
 
-  <p>Ingedients</p>
-  {% for entry in recipe.ingredientlist %}
-      <li>{{entry.ingredient}} {{entry.quantity}} {{entry.unit}}</font></li>
-  {% endfor %}
+
 
 {% endblock %}

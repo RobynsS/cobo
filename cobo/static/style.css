@@ -26,8 +26,8 @@
 }
 
 #footer {
-    background-color: #FFFFE3;
-    color: #828282;
+    background-color: #00A093;
+    color: #ffffff;
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 0px;
@@ -35,7 +35,7 @@
 
 #footer-text{
   margin-top: 1rem;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #main {
@@ -43,10 +43,55 @@
 }
 
 body {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
 h1 {
   text-align: center;
+  margin-top: 40px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 36px;
+  margin-bottom: 40px;  
+}
+
+h2 {
   margin-top: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 28px;
+  margin-bottom: 20px;  
+  color: #00A093;
+}
+
+#parameter-rectangle {
+  border-radius: 15px;
+  width:100%;
+  border:2px solid #00A093;
+}
+
+#parameters {
+  margin: 14px;
+
+}
+
+#parameters-text {
+  margin-bottom: 10px;
+}
+
+.badge{
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 8px;
+  margin-right:6px;
+}
+
+#course {
+  background-color: #999999;
+}
+
+#flag {
+  width: 40px;
+  height: 30px;
+  border-radius: 8px;
+  float: right;
 }
