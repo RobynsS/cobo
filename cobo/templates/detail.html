@@ -7,8 +7,39 @@
 
   <div id="parameter-rectangle">
     <div id="parameters">
-          <div id="parameters-text"> Serving: {{recipe.servings}} - Preparation: {{recipe.preparation_time}} - Cost: {{recipe.cost}}
-          <img id="flag" src={% static 'images/flags/be.svg' %}>
+          <div id="parameters-text">  
+            <img id="parameter-image" src={% static 'images/icons/user_1.svg' %}>
+            <span id="parameter-value" style="margin-right: 17px;">
+            {{recipe.servings}}
+            </span>
+
+            <img id="parameter-image" src={% static 'images/icons/clock_1.svg' %}>
+            <span id="parameter-value">
+              {% if recipe.preparation_time == 3 %}
+              Slow
+              {% endif %}
+              {% if recipe.preparation_time == 2 %}
+              Average
+              {% endif %}
+              {% if recipe.preparation_time == 1 %}
+              Fast
+              {% endif %}
+            </span>
+
+            <img id="parameter-image" src={% static 'images/icons/dollar_1.svg' %}>
+            <span id="parameter-value">
+              {% if recipe.cost == 3 %}
+              Expensive
+              {% endif %}
+              {% if recipe.cost == 2 %}
+              Medium
+              {% endif %}
+              {% if recipe.cost == 1 %}
+              Cheap
+              {% endif %}
+            </span>
+
+            <img id="flag" src={% static 'images/flags/be.svg' %}>
           </div>
           <div>
             <span class="badge badge-secondary" id="course">{{recipe.course}}</span>
@@ -19,14 +50,19 @@
     </div>
   </div>
 
-  <div class="row" id="ingredients-image">
+  <div>
     <div class="column" style="width: 60%; float:left">
+      <img id="photo" src={% static 'images/placeholder.jpg' %}>
     </div>
 
-    <div class="column" style="width: 40%; float:right">
+    <div class="column" id="ingredients-image">
         <h2>Ingedients</h2>
         {% for entry in recipe.ingredientlist %}
-            <li>{{entry.ingredient}} {{entry.quantity}} {{entry.unit}}</font></li>
+        <span>
+            <span id="ingredient">{{entry.ingredient}}</span>
+            <span id="ingredient-quantity"> {{entry.quantity}} {{entry.unit}}</span>
+            <br style="clear: both;">
+        </span>
         {% endfor %}
     </div>
   </div>
@@ -34,14 +70,19 @@
   <div id="instructions">
 
 
-  <h2>Instructions</h2>
-  <ol>
-  {% for step in recipe.steps %}
-      <li>{{step.instruction}}</font></li>
-  {% endfor %}
-  </ol>
+    <h2>Instructions</h2>
+    <span id="instruction-steps">
+      {% for step in recipe.steps %}
+        <span>
+            <span id="instruction-number">{{ forloop.counter }}</span>
+            <span id="instruction-text">{{step.instruction}}</span>
+            <br style="clear: both;">
+        </span>   
+      {% endfor %}
+    </span>
   </div>
-
-
+  <br>
+  <br>
+  <br>
 
 {% endblock %}

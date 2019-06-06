@@ -65,17 +65,26 @@ h2 {
 
 #parameter-rectangle {
   border-radius: 15px;
-  width:100%;
   border:2px solid #00A093;
+  margin-bottom: 60px;
 }
 
 #parameters {
   margin: 14px;
-
 }
 
 #parameters-text {
   margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#parameter-image {
+  margin-bottom: 3px;
+}
+
+#parameter-value {
+  margin-right: 10px;
 }
 
 .badge{
@@ -94,4 +103,63 @@ h2 {
   height: 30px;
   border-radius: 8px;
   float: right;
+}
+
+#instructions {
+  width: 100%;
+  clear: both;
+  padding-top: 50px;
+}
+
+#instruction-steps {
+  font-size: 20px;
+}
+
+#ingredients-image {
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  font-size: 20px;
+  padding-right: 15px;
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  width: 40%; 
+  float:right;
+}
+
+#ingredient {
+  padding-left: 10px;
+  width: 40%; 
+  float:left;
+  padding-bottom: 10px;
+}
+
+#ingredient-quantity {
+  width: 40%; 
+  float:right;
+  font-weight: 600;
+  padding-bottom: 10px;
+
+}
+
+#photo {
+    border-radius: 15px;
+    width: 600;
+}
+
+#instruction-text{
+  width: 95%;
+  float:right;
+    padding-bottom: 40px;
+
+}
+
+#instruction-number{
+  margin-left: 10px;
+  width: 3%;
+  float:left;
+  padding-bottom: 40px;
+  font-size: 24px;
+  font-weight: 600;
+
 }
