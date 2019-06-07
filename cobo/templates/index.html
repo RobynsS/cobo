@@ -1,10 +1,12 @@
 {% extends 'basic.html' %} 
 {% block 'body' %}
 
-<p>Index page</p>
+<h1 id="title-quote">Let's cook!</h1>
 
-<a href="{% url 'add' %}">Add recipe</a>
 
-<a href="{% url 'search' %}">Search recipe</a>
+<div style="text-align:center;">
+    <a href="{% url 'search' %}" id="search-button" class="btn btn-default">Search recipe</a>
 
+    <a href="{% url 'add' %}" id="add-button" class="btn btn-default">Add recipe</a>
+</div>
 {% endblock %}

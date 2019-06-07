@@ -20,6 +20,29 @@
   padding-top: 10px;
 }
 
+.btn {
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 26px;
+  color: #ffffff;
+  margin: 80px;
+  padding-top: 95px;
+}
+
+.btn:hover {
+  color: #414959;
+}
+
+#add-button{
+  background-color: #6CE9D2;
+}
+
+#search-button{
+  background-color: #B9737A;
+}
+
 #topLine {
     background-color: #6CE9D2;
     height: 10px;
@@ -39,20 +62,22 @@
 }
 
 #main {
-  min-height: 700px
+  min-height: 650px
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
+  color: #414959;
 }
 
 h1 {
   text-align: center;
-  margin-top: 40px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 36px;
-  margin-bottom: 40px;  
+  margin-top: 44px;
+  font-family: 'Courgette', cursive;
+  font-size: 40px;
+  margin-bottom: 46px;  
+  color: #414959;
 }
 
 h2 {
@@ -108,7 +133,7 @@ h2 {
 #instructions {
   width: 100%;
   clear: both;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 #instruction-steps {
@@ -144,13 +169,13 @@ h2 {
 
 #photo {
     border-radius: 15px;
-    width: 600;
+    width: 600px;
 }
 
 #instruction-text{
   width: 95%;
   float:right;
-    padding-bottom: 40px;
+    padding-bottom: 34px;
 
 }
 
@@ -158,8 +183,15 @@ h2 {
   margin-left: 10px;
   width: 3%;
   float:left;
-  padding-bottom: 40px;
+  padding-bottom: 34px;
   font-size: 24px;
   font-weight: 600;
 
+}
+
+#bonappetit{
+  color: #414959;
+  font-family: 'Courgette', cursive;
+  font-size: 30px;
+  text-align: center;
 }
