@@ -15,7 +15,7 @@ class Recipe:
         self.preparation_time = recipe_query.preparation_time
         self.cost = recipe_query.cost
         self.course = recipe_query.course_id.name
-        self.cuisine = recipe_query.cuisine_id.name
+        self.cuisine = recipe_query.cuisine_id.initials
 
         # Fill in multi parameters of object into class
         labels = []

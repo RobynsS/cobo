@@ -38,8 +38,7 @@
               Cheap
               {% endif %}
             </span>
-
-            <img id="flag" src={% static 'images/flags/be.svg' %}>
+            <img id="flag" src={% static 'images/flags/'|add:recipe.cuisine|add:'.svg' %}>
           </div>
           <div>
             <span class="badge badge-secondary" id="course">{{recipe.course}}</span>
@@ -74,7 +73,7 @@
     <span id="instruction-steps">
       {% for step in recipe.steps %}
         <span>
-            <span id="instruction-number">{{ forloop.counter }}</span>
+            <span id="instruction-number">{{step.number }}</span>
             <span id="instruction-text">{{step.instruction}}</span>
             <br style="clear: both;">
         </span>   

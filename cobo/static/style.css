@@ -21,14 +21,14 @@
 }
 
 .btn {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 15px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 26px;
   color: #ffffff;
-  margin: 80px;
-  padding-top: 95px;
+  margin: 50px;
+  padding-top: 55px;
 }
 
 .btn:hover {
@@ -41,6 +41,10 @@
 
 #search-button{
   background-color: #B9737A;
+}
+
+#edit-button{
+  background-color: #999999;
 }
 
 #topLine {
