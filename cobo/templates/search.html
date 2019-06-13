@@ -1,3 +1,41 @@
-<p>Search page</p>
+{% extends 'basic.html' %} 
+{% block 'body' %}
 
-<a href="{% url 'index' %}">Home</a>
+<h1>Search recipe</h1>
+
+<form>
+  <div class="form-group">
+    <h2>Recipe/Ingredients</h2>
+    <input type="text" class="form-control" placeholder="Enter recipe or ingredient(s)">
+  </div>
+
+  <div class="form-group">
+    <h2>Course</h2>
+    <select multiple class="form-control">
+    {% for entry in courses.names %}
+      <option>{{entry}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <h2>Cuisine</h2>
+    <select multiple class="form-control">
+    {% for entry in cuisines.names %}
+      <option>{{entry}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <h2>Label</h2>
+    <select multiple class="form-control">
+    {% for entry in labels.names %}
+      <option>{{entry}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button class="btn btn-primary">Search</button>
+</form>
+{% endblock %}

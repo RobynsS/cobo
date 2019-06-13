@@ -2,6 +2,8 @@ from .models import Recipe as RecipeModel
 from .models import Label as LabelModel
 from .models import Step as StepModel
 from .models import IngredientList as ListModel
+from .models import Course as CourseModel
+from .models import Cuisine as CuisineModel
 
 
 class Recipe:
@@ -62,3 +64,27 @@ class IngredientList:
             self.unit = list_query.unit
         else:
             self.unit = ""
+
+
+class CourseList:
+    def __init__(self):
+        entries = []
+        for entry in CourseModel.objects.all().order_by('name'):
+            entries.append(entry.name)
+        self.names = entries
+
+
+class CuisineList:
+    def __init__(self):
+        entries = []
+        for entry in CuisineModel.objects.all().order_by('name'):
+            entries.append(entry.name)
+        self.names = entries
+
+
+class LabelList:
+    def __init__(self):
+        entries = []
+        for entry in LabelModel.objects.all().order_by('name'):
+            entries.append(entry.name)
+        self.names = entries
