@@ -34,15 +34,16 @@ class TextFilter:
     def filter(self, recipe):
         filter_boolean = False
 
-        a = self.filter_text
-        a = a.lower()
-        b = recipe.name
-        b = b.lower()
-        c = a in b
-
         if(self.filter_text == ""):
             filter_boolean = True
+
+        # Search on title
         elif(self.filter_text.lower() in recipe.name.lower()):
             filter_boolean = True
+
+        # Search on ingredient
+        for entry in recipe.ingredientlist:
+            if(self.filter_text.lower() in entry.ingredient.name.lower()):
+                filter_boolean = True
 
         return filter_boolean
