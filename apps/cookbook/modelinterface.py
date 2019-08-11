@@ -88,3 +88,11 @@ class LabelList:
         for entry in LabelModel.objects.all().order_by('name'):
             entries.append(entry.name)
         self.names = entries
+
+
+class RecipesList:
+    def __init__(self):
+        entries = []
+        for entry in RecipeModel.objects.all().order_by('name'):
+            entries.append(Recipe(entry.id))
+        self.entries = entries

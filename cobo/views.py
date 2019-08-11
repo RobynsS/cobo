@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from apps.cookbook.modelinterface import Recipe, CourseList, CuisineList, LabelList
+from apps.cookbook.recipefinder import RecipeFinder
 
 
 def index(request):
@@ -21,6 +22,15 @@ def search(request):
         'labels': labels
     }
     return render(request, 'search.html', context)
+
+
+def result(request):
+    recipe_finder = RecipeFinder(request)
+    recipe_finder.searchRecipe()
+    context = {
+        'recipes': recipe_finder.getResult(),
+    }
+    return render(request, 'result.html', context)
 
 
 def detail(request, recipe_id):

@@ -1,0 +1,8 @@
+<p>Result page</p>
+
+<h1>Following recipes are found:</h1>
+{% for recipe in recipes %}
+<li>{{recipe.name}}</li>
+{% endfor %}
+
+<a href="{% url 'index' %}">Home</a>
