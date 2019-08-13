@@ -10,7 +10,7 @@ class RecipeFinder:
     def searchRecipe(self):
 
         filter = CombinedFilter(
-            [TextFilter(self.query.text), CuisineFilter(self.query.cuisines), CourseFilter(self.query.courses)])
+            [TextFilter(self.query.text), CuisineFilter(self.query.cuisines), CourseFilter(self.query.courses), LabelFilter(self.query.labels)])
 
         # filter = TextFilter(self.query.text)
 
@@ -85,6 +85,25 @@ class CourseFilter:
             for course in self.filter_courses:
                 if(course == recipe.course):
                     filter_boolean = True
+
+        return filter_boolean
+
+
+class LabelFilter:
+    def __init__(self, filter_labels):
+        self.filter_labels = filter_labels
+
+    def filter(self, recipe):
+        filter_boolean = False
+
+        if(self.filter_labels == []):
+            filter_boolean = True
+
+        else:
+            for label in self.filter_labels:
+                for recipe_label in recipe.labels:
+                    if(label == recipe_label.name):
+                        filter_boolean = True
 
         return filter_boolean
 
