@@ -74,12 +74,12 @@ class CourseList:
         self.list = entries
 
 
-class Cuisine:
-    def __init__(self, id):
-        # Get cuisine object from database
-        cuisine_query = CuisineModel.objects.get(pk=id)
-        self.name = cuisine_query.name
-        self.initials = cuisine_query.initials
+# class Cuisine:
+#     def __init__(self, id):
+#         # Get cuisine object from database
+#         cuisine_query = CuisineModel.objects.get(pk=id)
+#         self.name = cuisine_query.name
+#         self.initials = cuisine_query.initials
 
 
 class CuisineList:
