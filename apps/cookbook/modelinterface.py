@@ -70,24 +70,41 @@ class CourseList:
     def __init__(self):
         entries = []
         for entry in CourseModel.objects.all().order_by('name'):
-            entries.append(entry.name)
-        self.names = entries
+            entries.append(entry)
+        self.list = entries
+
+
+class Cuisine:
+    def __init__(self, id):
+        # Get cuisine object from database
+        cuisine_query = CuisineModel.objects.get(pk=id)
+        self.name = cuisine_query.name
+        self.initials = cuisine_query.initials
 
 
 class CuisineList:
     def __init__(self):
         entries = []
         for entry in CuisineModel.objects.all().order_by('name'):
-            entries.append(entry.name)
-        self.names = entries
+            entries.append(entry)
+        self.list = entries
+
+    def get_initials(self, name):
+        initials = None
+
+        for entry in self.list:
+            if(name == entry.name):
+                initials = entry.initials
+
+        return initials
 
 
 class LabelList:
     def __init__(self):
         entries = []
         for entry in LabelModel.objects.all().order_by('name'):
-            entries.append(entry.name)
-        self.names = entries
+            entries.append(entry)
+        self.list = entries
 
 
 class RecipesList:

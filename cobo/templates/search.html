@@ -13,26 +13,26 @@
   <div class="form-group">
     <h2>Course</h2>
     <select multiple class="form-control" name="courses">
-    {% for entry in courses.names %}
-      <option>{{entry}}</option>
+    {% for entry in courses.list %}
+      <option>{{entry.name}}</option>
       {% endfor %}
     </select>
   </div>
 
   <div class="form-group">
     <h2>Cuisine</h2>
-    <select multiple class="form-control">
-    {% for entry in cuisines.names %}
-      <option>{{entry}}</option>
+    <select multiple class="form-control" name="cuisines">
+    {% for entry in cuisines.list %}
+      <option>{{entry.name}}</option>
       {% endfor %}
     </select>
   </div>
 
   <div class="form-group">
     <h2>Label</h2>
-    <select multiple class="form-control">
-    {% for entry in labels.names %}
-      <option>{{entry}}</option>
+    <select multiple class="form-control" name="labels">
+    {% for entry in labels.list %}
+      <option>{{entry.name}}</option>
       {% endfor %}
     </select>
   </div>
