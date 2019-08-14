@@ -1,8 +1,37 @@
-<p>Result page</p>
+{% extends 'basic.html' %} 
+{% block 'body' %}
 
-<h1>Following recipes are found:</h1>
-{% for recipe in recipes %}
-<li>{{recipe.name}}</li>
-{% endfor %}
+{% load static %}
 
-<a href="{% url 'index' %}">Home</a>
+<h1>Recipes found</h1>
+
+  <div class="container">
+    <div class="row" id="row-card">
+        {% for recipe in recipes%}
+            <div class="col-sm-4" id="col-card">
+              <a href="{% url 'detail' recipe.id %}" id="a-card">
+              <div class="card" id="recipe-card">
+                <img class="card-img-top img-fluid" id="image-card" src={% static 'images/placeholder.jpg' %}>
+                <div class="card-body">
+                  <h5 class="card-title">{{recipe.name}}</h5>    
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" id='card-labels'>
+                      <span class="badge badge-secondary" id="course">{{recipe.course}}</span>
+                          {% for label in recipe.labels %}
+                            <span class="badge badge-secondary" style="background-color: {{label.colour.hex}}">{{label.name}}</span>
+                          {% endfor %}
+                      <img id="flag" src={% static 'images/flags/'|add:recipe.cuisine|add:'.svg' %}>
+                  </li>
+                </ul>
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

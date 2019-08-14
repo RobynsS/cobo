@@ -92,6 +92,10 @@ h2 {
   color: #00A093;
 }
 
+h5 {
+  font-family: 'Noto Sans KR', sans-serif;  
+}
+
 #parameter-rectangle {
   border-radius: 15px;
   border:2px solid #00A093;
@@ -198,4 +202,67 @@ h2 {
   font-family: 'Courgette', cursive;
   font-size: 30px;
   text-align: center;
+}
+
+#row-card {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+#row-card > div[class*='col-'] {
+  display: flex;
+}
+
+#col-card {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+#recipe-card{
+  border-radius: 15px;
+  border:2px solid #00A093;
+}
+
+#image-card{
+  border-top-left-radius: 13px;
+ border-top-right-radius: 13px;
+}
+
+#a-card,
+#a-card:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-title {
+    margin-bottom: 0rem;
+}
+
+.card-body {
+    padding: 1.00rem;
+}
+
+#card-labels {
+  margin-bottom: 0px;
+  padding: .75rem 0.75rem;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#button-brown{
+  background-color: #B9737A;
+  color: #ffffff;
+  border-color: #B9737A;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 8px;
+}
+
+#button-brown:hover {
+  color: #414959;
+}
+
+.form-group{
+  margin-bottom: 2rem;
 }
