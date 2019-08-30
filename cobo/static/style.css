@@ -256,10 +256,41 @@ h5 {
   color: #ffffff;
   border-color: #B9737A;
   font-family: 'Noto Sans KR', sans-serif;
-  border-radius: 8px;
+  border-radius: 12px;
+  padding: 12px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+#button-green{
+  background-color: #6CE9D2;
+  color: #ffffff;
+  border-color: #6CE9D2;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 12px;
+  padding: 12px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+#button-add{
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 2px;
+  padding-right: 8px;
+  padding-left: 8px;
+  background-color: #999999;
+  color: #ffffff;
+  border-color: #999999;
+  font-family: 'Noto Sans KR', sans-serif;
+  height: 30px;
 }
 
 #button-brown:hover {
+  color: #414959;
+}
+
+#button-green:hover {
   color: #414959;
 }
 

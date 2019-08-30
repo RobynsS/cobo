@@ -1,3 +1,83 @@
-<p>Add page</p>
+{% extends 'basic.html' %} 
+{% block 'body' %}
 
-<a href="{% url 'index' %}">Home</a>
+<h1>Add recipe</h1>
+
+<form action="{% url 'result' %}" method="post">
+{% csrf_token %}
+  <div class="form-group">
+    <h2>Name</h2>
+    <input type="text" name="name" class="form-control" placeholder="Enter the name of your recipe">
+  </div>
+
+  <div class="form-group">
+    <h2>Classification</h2>
+    <input type="number"name="servings" class="form-control" placeholder="Enter amount of servings for your recipe">
+    <br>
+    <select class="form-control" name="preparation">
+      <option value="" disabled selected>Select the preparation time</option>
+      <option value="3">Slow</option>
+      <option value="2">Average</option>
+      <option value="1">Fast</option>
+    </select>
+    <br>
+    <select class="form-control" name="price">
+      <option value="" disabled selected>Select the price</option>
+      <option value="3">Expensive</option>
+      <option value="2">Average</option>
+      <option value="1">Cheap</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <h2>Course</h2>
+    <select class="form-control" name="courses">
+    <option value="" disabled selected>Select the correct course</option>
+    {% for entry in courses.list %}
+      <option>{{entry.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <h2>Cuisine</h2>
+    <select class="form-control" name="cuisines">
+    <option value="" disabled selected>Select the correct cuisine</option>
+    {% for entry in cuisines.list %}
+      <option>{{entry.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <h2>Label</h2>
+    <select multiple class="form-control" name="labels">
+    <option value="" disabled selected>Select the applicable labels</option>
+    {% for entry in labels.list %}
+      <option>{{entry.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <h2>Ingredients&nbsp&nbsp&nbsp<button class="btn btn-primary" id="button-add">Add ingredient</button></h2>
+    In development
+  </div>
+
+  <div class="form-group">
+    <h2>Steps&nbsp&nbsp&nbsp<button class="btn btn-primary" id="button-add">Add step</button></h2> 
+    <select class="form-control" name="courses">
+    <option value="" disabled selected>Select the correct course</option>
+    {% for entry in courses.list %}
+      <option>{{entry.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <br>
+  <button class="btn btn-primary" id="button-green">Add Recipe</button>
+
+  
+</form>
+<br>
+<br>
+{% endblock %}

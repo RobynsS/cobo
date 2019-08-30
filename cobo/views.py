@@ -8,7 +8,16 @@ def index(request):
 
 
 def add(request):
-    return render(request, 'add.html')
+    courses = CourseList()
+    cuisines = CuisineList()
+    labels = LabelList()
+
+    context = {
+        'courses': courses,
+        'cuisines': cuisines,
+        'labels': labels
+    }
+    return render(request, 'add.html', context)
 
 
 def search(request):
