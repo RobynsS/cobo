@@ -12,8 +12,6 @@ class RecipeFinder:
         filter = CombinedFilter(
             [TextFilter(self.query.text), CuisineFilter(self.query.cuisines), CourseFilter(self.query.courses), LabelFilter(self.query.labels)])
 
-        # filter = TextFilter(self.query.text)
-
         for recipe in self.recipes_all.entries:
             if(filter.filter(recipe)):
                 self.recipes_filtered.append(recipe)

@@ -19,7 +19,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('add/', views.add, name='add'),
+    path('add_1/', views.add_1, name='add_1'),
+    path('add_2/', views.add_2, name='add_2'),
     path('recipe/<int:recipe_id>', views.detail, name='detail'),
     path('search/', views.search, name='search'),
     path('result/', views.result, name="result"),
