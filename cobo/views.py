@@ -51,7 +51,11 @@ def add_2(request):
 
         recipe_adder = RecipeAdder(request)
 
-        return HttpResponseRedirect(reverse('detail', args='1'))
+        recipe_adder.addRecipeToDatabase()
+
+        recipe_id = str(recipe_adder.getRecipeID())
+
+        return HttpResponseRedirect(reverse('detail', args=(recipe_id,)))
 
 
 def search(request):
