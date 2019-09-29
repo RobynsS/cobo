@@ -79,7 +79,9 @@ class RecipeAdder:
             ingredientListEntry.ingredient = ingredient
             ingredientListEntry.recipe = recipeEntry
             ingredientListEntry.unit = unit
-            ingredientListEntry.quantity = entry["quantity"]
+
+            if not entry["quantity"] == "":
+                ingredientListEntry.quantity = entry["quantity"]
 
             ingredientListEntry.save()
 
@@ -112,8 +114,13 @@ class RecipeQuery:
     def getIngredients(self, request):
         ingr_list = []
         for i in range(int(request.session.get('ingredients'))):
+            if request.POST['ingr_' + str(i + 1) + "_qty"] == "":
+                quantity = ""
+            else:
+                quantity = float(request.POST['ingr_' + str(i + 1) + "_qty"])
+
             entry = {
-                "quantity": float(request.POST['ingr_' + str(i + 1) + "_qty"]),
+                "quantity": quantity,
                 "unit": request.POST['ingr_' + str(i + 1) + "_unit"].lower(),
                 "ingredient": request.POST['ingr_' + str(i + 1)].capitalize()
             }
